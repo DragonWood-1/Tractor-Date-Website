@@ -5,6 +5,59 @@
 
 const REFERENCE_SITE = "https://www.tractordata.com";
 
+// All photos are freely licensed images hosted on Wikimedia Commons.
+// wmPhoto() builds a direct image URL; wmCredit() links to the file page
+// (which carries the author and license details required for attribution).
+function wmPhoto(file, width) {
+  return "https://commons.wikimedia.org/wiki/Special:FilePath/" +
+    encodeURIComponent(file) + "?width=" + (width || 800);
+}
+
+function wmCredit(file) {
+  return "https://commons.wikimedia.org/wiki/File:" + encodeURIComponent(file);
+}
+
+// Brand-specific photos (Wikimedia Commons filenames) for well-known brands.
+const BRAND_PHOTOS = {
+  "John Deere": "John Deere 8520.jpg",
+  "Deere": "John Deere 8520.jpg",
+  "CaseIH": "Case IH AFS 600 QuadTrac.JPG",
+  "Case": "Case IH 3594 tractor.jpg",
+  "J.I. Case": "Case IH 3594 tractor.jpg",
+  "New Holland": "NewHolland T7070.jpg",
+  "Kubota": "Kubota Small Tractor - Flickr - mick - Lumix.jpg",
+  "Massey Ferguson": "Massey Ferguson 175 red tractor September 2005.jpg",
+  "Fendt": "Fendt Farmer 308-90 pic2.JPG",
+  "Claas": "Claas Lexion 550 Combine.JPG",
+  "Farmall": "Farmall 806 tractor PA1.jpg",
+  "International Harvester": "McCormick-Farmall 560 Tractor-1.JPG",
+  "McCormick-Deering": "McCormick-Deering Farmall F-12 tractor.jpg",
+  "Ford": "Ford TW-5 traktor.jpg",
+  "Farmtrac": "Farmtrac tractor.JPG",
+  "Shibaura": "Shibaura ST321.jpg",
+  "Samson": "Samson M Tractor.JPG",
+  "Holt": "Holt tractor Soldier Field Chicago 1924.JPG",
+  "Ivel Agricultural Motors": "Ivel Tractor 1902.JPG",
+  "Toro": "TORO Z Master Commercial Zero-Turn Riders mower at Construct Expo Utilaje 2010.JPG",
+  "Cub Cadet": "Cub Cadet XT1.jpg"
+};
+
+// Lawn & garden brands that share a farm-brand name but need a lawn photo.
+const LAWN_BRAND_PHOTOS = {
+  "Cub Cadet": "Cub Cadet XT1.jpg",
+  "John Deere": "John Deere Tractor Lawnmower F1145 3.JPG",
+  "Toro": "TORO Z Master Commercial Zero-Turn Riders mower at Construct Expo Utilaje 2010.JPG"
+};
+
+// Neutral fallback photos for brands without a brand-specific image.
+const GENERIC_FARM_PHOTO = "Tractor-agricultural-machine-cultivating-field.jpg";
+const GENERIC_LAWN_PHOTO = "Lawn-Mowing.jpg";
+
+function brandPhotoFile(name, isLawn) {
+  if (isLawn) return LAWN_BRAND_PHOTOS[name] || GENERIC_LAWN_PHOTO;
+  return BRAND_PHOTOS[name] || GENERIC_FARM_PHOTO;
+}
+
 const FARM_BRANDS = [
   ["AGCO", 59, "1995-2011", "22-425 hp", "https://www.agcocorp.com"],
   ["AGCO Allis", 39, "1991-2001", "50-250 hp", "https://www.agcocorp.com"],
@@ -352,62 +405,25 @@ const LAWN_BRANDS = [
   ["Yard-Man", 72, "1959-1998", "4-22 hp", null]
 ];
 
-// Signature colors for well-known brands, used to tint each brand's tractor photo.
-const BRAND_COLORS = {
-  "John Deere": "#367c2b", "Deere": "#367c2b", "CaseIH": "#b71c1c", "Case": "#c8553d",
-  "J.I. Case": "#c8553d", "Farmall": "#b71c1c", "International Harvester": "#c62828",
-  "New Holland": "#1565c0", "Ford": "#1565c0", "Ford-New Holland": "#1565c0",
-  "Fordson": "#37474f", "Kubota": "#e65100", "Massey Ferguson": "#c62828",
-  "Massey-Harris": "#c62828", "Fendt": "#2e7d32", "Claas": "#9e9d24",
-  "Valtra": "#6a1b9a", "Deutz-Fahr": "#2e7d32", "Deutz": "#2e7d32",
-  "SAME": "#d84315", "Lamborghini": "#f9a825", "Landini": "#1565c0",
-  "McCormick Intl": "#b71c1c", "Zetor": "#b71c1c", "Belarus": "#1565c0",
-  "Kioti": "#e65100", "Mahindra": "#c62828", "TYM": "#1565c0", "LS": "#1565c0",
-  "Branson": "#bf360c", "Yanmar": "#b71c1c", "Iseki": "#1565c0",
-  "Steyr": "#b71c1c", "JCB": "#f9a825", "Challenger": "#f9a825",
-  "Caterpillar": "#f9a825", "Versatile": "#b71c1c", "Buhler Versatile": "#b71c1c",
-  "Steiger": "#388e3c", "Big Bud": "#33691e", "Oliver": "#2e7d32",
-  "Allis Chalmers": "#e65100", "AGCO": "#37474f", "AGCO Allis": "#e65100",
-  "Minneapolis-Moline": "#f9a825", "White": "#9e9e9e", "David Brown": "#f5f5f5",
-  "Bobcat": "#e65100", "Bad Boy": "#e65100", "Cub Cadet": "#f9a825",
-  "Husqvarna": "#e65100", "Toro": "#c62828", "Craftsman": "#b71c1c",
-  "Craftsman Professional": "#b71c1c", "Snapper": "#c62828", "Simplicity": "#e65100",
-  "Troy-Bilt": "#c62828", "Gravely": "#b71c1c", "Ariens": "#e65100",
-  "Wheel Horse": "#c62828", "Bolens": "#388e3c", "Murray": "#c62828",
-  "Honda": "#c62828", "Sears": "#37474f", "MTD": "#37474f",
-  "Ventrac": "#e65100", "Poulan": "#388e3c", "RedMax": "#c62828"
-};
-
-// Deterministic fallback color for brands without a known signature color.
-const PALETTE = ["#2e7d32", "#b71c1c", "#1565c0", "#e65100", "#f9a825",
-  "#6a1b9a", "#37474f", "#00695c", "#bf360c", "#558b2f"];
-
-function brandColor(name) {
-  if (BRAND_COLORS[name]) return BRAND_COLORS[name];
-  let h = 0;
-  for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
-  return PALETTE[h % PALETTE.length];
-}
-
 const FARM_EQUIPMENT = [
-  { name: "Farm Tractor", img: "images/farm-tractor.svg",
+  { name: "Farm Tractor", file: "Modern John Deere Tractor IMG 0401.JPG",
     desc: "The workhorse of every farm — from 20 hp utility tractors to 700+ hp articulated four-wheel-drive giants." },
-  { name: "Vintage / Antique Tractor", img: "images/vintage-tractor.svg",
+  { name: "Vintage / Antique Tractor", file: "John Deere Tractor - 1960 - Model 530.JPG",
     desc: "Classic iron from brands like Farmall, Allis Chalmers, Oliver, and Fordson, dating back to the early 1900s." },
-  { name: "Lawn & Garden Tractor", img: "images/lawn-tractor.svg",
+  { name: "Lawn & Garden Tractor", file: "Cub Cadet XT1.jpg",
     desc: "Riding mowers and garden tractors from 2 to 64 hp for homeowners and acreage owners." },
-  { name: "Zero-Turn Mower", img: "images/zero-turn.svg",
+  { name: "Zero-Turn Mower", file: "TORO Z Master Commercial Zero-Turn Riders mower at Construct Expo Utilaje 2010.JPG",
     desc: "Fast, maneuverable mowers from brands like Bad Boy, Toro, Husqvarna, and Gravely." },
-  { name: "Combine Harvester", img: "images/combine.svg",
+  { name: "Combine Harvester", file: "Claas Lexion 550 Combine.JPG",
     desc: "Self-propelled harvesters that cut, thresh, and clean grain in a single pass." },
-  { name: "Round Baler", img: "images/baler.svg",
+  { name: "Round Baler", file: "Round bale 3066.jpg",
     desc: "Hay and forage balers that roll cut crops into dense round or square bales." },
-  { name: "Moldboard Plow", img: "images/plow.svg",
+  { name: "Moldboard Plow", file: "Plough or plow.JPG",
     desc: "Primary tillage implements that turn over soil ahead of planting." },
-  { name: "Field Sprayer", img: "images/sprayer.svg",
+  { name: "Field Sprayer", file: "Dammann field sprayer.JPG",
     desc: "Boom sprayers for applying fertilizer and crop protection across wide swaths." },
-  { name: "Seed Drill / Planter", img: "images/seed-drill.svg",
+  { name: "Seed Drill / Planter", file: "John Deere Planter with Case IH Tractor.JPG",
     desc: "Precision planting equipment that meters seed into evenly spaced rows." },
-  { name: "Rotary Tiller", img: "images/tiller.svg",
+  { name: "Rotary Tiller", file: "SIMAR 56A two-wheel tractor (1).jpg",
     desc: "PTO-driven tillers that break up and aerate soil for seedbed preparation." }
 ];

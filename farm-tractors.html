@@ -6,7 +6,7 @@
   <title>Farm Tractors — Tractor Date</title>
   <meta name="description" content="Every farm tractor brand with photos, production years, horsepower ranges, and links to manufacturer websites.">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="images/farm-tractor.svg" type="image/svg+xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚜</text></svg>">
 </head>
 <body>
   <header class="site">
@@ -37,11 +37,11 @@
 
   <footer class="site">
     <p>Tractor Date — specifications for farm, lawn, and industrial tractors.</p>
-    <p>Historical specification reference: <a href="https://www.tractordata.com" target="_blank" rel="noopener noreferrer">TractorData.com</a></p>
+    <p>Photos via <a href="https://commons.wikimedia.org" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> — click any photo for its author and license. Historical specification reference: <a href="https://www.tractordata.com" target="_blank" rel="noopener noreferrer">TractorData.com</a></p>
   </footer>
 
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
-  <script>renderBrands("farm-grid", FARM_BRANDS, "farm-search", "farm-count");</script>
+  <script>renderBrands("farm-grid", FARM_BRANDS, "farm-search", "farm-count", false);</script>
 </body>
 </html>

@@ -6,7 +6,7 @@
   <title>Tractor Date — Farm, Lawn &amp; Industrial Tractor Resource</title>
   <meta name="description" content="Tractor Date: specifications, production years, and horsepower for farm tractors, lawn and garden tractors, and farm equipment, with links to every manufacturer.">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="images/farm-tractor.svg" type="image/svg+xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚜</text></svg>">
 </head>
 <body>
   <header class="site">
@@ -41,15 +41,15 @@
 
     <div class="tiles">
       <a class="tile" href="farm-tractors.html">
-        <img src="images/farm-tractor.svg" alt="Farm tractor in a field">
+        <img id="tile-farm" alt="Tractor cultivating a field">
         <div class="label">Farm Tractors</div>
       </a>
       <a class="tile" href="lawn-tractors.html">
-        <img src="images/lawn-tractor.svg" alt="Lawn and garden tractor mowing grass">
+        <img id="tile-lawn" alt="Riding mower cutting a lawn">
         <div class="label">Lawn &amp; Garden Tractors</div>
       </a>
       <a class="tile" href="equipment.html">
-        <img src="images/combine.svg" alt="Combine harvester in a wheat field">
+        <img id="tile-equipment" alt="Claas combine harvester">
         <div class="label">Farm Equipment</div>
       </a>
     </div>
@@ -57,13 +57,16 @@
 
   <footer class="site">
     <p>Tractor Date — specifications for farm, lawn, and industrial tractors.</p>
-    <p>Historical specification reference: <a href="https://www.tractordata.com" target="_blank" rel="noopener noreferrer">TractorData.com</a></p>
+    <p>Photos via <a href="https://commons.wikimedia.org" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> — click any photo for its author and license. Historical specification reference: <a href="https://www.tractordata.com" target="_blank" rel="noopener noreferrer">TractorData.com</a></p>
   </footer>
 
   <script src="js/data.js"></script>
   <script>
     document.getElementById("stat-farm").textContent = FARM_BRANDS.length;
     document.getElementById("stat-lawn").textContent = LAWN_BRANDS.length;
+    document.getElementById("tile-farm").src = wmPhoto(GENERIC_FARM_PHOTO);
+    document.getElementById("tile-lawn").src = wmPhoto(GENERIC_LAWN_PHOTO);
+    document.getElementById("tile-equipment").src = wmPhoto("Claas Lexion 550 Combine.JPG");
   </script>
 </body>
 </html>

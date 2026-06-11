@@ -11,9 +11,11 @@ with data on 18,258 tractors.
 - **lawn-tractors.html** — all 87 lawn & garden tractor brands with searchable cards
 - **equipment.html** — farm equipment gallery (combines, balers, plows, sprayers, and more)
 
-Each brand card shows an original tractor illustration tinted in the brand's signature
-color, the brand's tractor count, production years, and horsepower range, plus a link to
-the manufacturer's official website (heritage brands link to TractorData.com).
+Each brand card shows a real photo (brand-specific for major brands, a neutral field or
+lawn photo otherwise), the brand's tractor count, production years, and horsepower range,
+plus a link to the manufacturer's official website (heritage brands link to
+TractorData.com). All photos are freely licensed images served from Wikimedia Commons;
+each photo links to its Commons file page for author and license attribution.
 
 ## Running locally
 
@@ -34,7 +36,7 @@ farm-tractors.html     Farm tractor brand directory
 lawn-tractors.html     Lawn & garden brand directory
 equipment.html         Equipment gallery
 css/styles.css         Site styles
-js/data.js             Brand database and brand colors
+js/data.js             Brand database and photo mappings
 js/app.js              Card rendering and search
-images/*.svg           Original equipment illustrations
+vercel.json            Image proxy rewrite for Wikimedia Commons photos
 ```
