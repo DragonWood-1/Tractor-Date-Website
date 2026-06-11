@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#cfe8f7"/>
+  <rect y="220" width="400" height="80" fill="#7cb342"/>
+  <circle cx="340" cy="55" r="28" fill="#ffd54f"/>
+  <ellipse cx="90" cy="60" rx="40" ry="16" fill="#ffffff" opacity="0.85"/>
+  <ellipse cx="250" cy="40" rx="50" ry="18" fill="#ffffff" opacity="0.7"/>
+  <!-- tractor body -->
+  <rect x="110" y="120" width="130" height="60" rx="8" fill="#2e7d32"/>
+  <rect x="225" y="95" width="80" height="85" rx="8" fill="#2e7d32"/>
+  <rect x="238" y="105" width="54" height="42" rx="4" fill="#b3e5fc"/>
+  <rect x="100" y="150" width="20" height="30" rx="4" fill="#1b5e20"/>
+  <rect x="118" y="98" width="14" height="28" rx="3" fill="#37474f"/>
+  <rect x="110" y="130" width="120" height="10" fill="#ffd600"/>
+  <!-- wheels -->
+  <circle cx="150" cy="215" r="34" fill="#212121"/>
+  <circle cx="150" cy="215" r="18" fill="#fbc02d"/>
+  <circle cx="278" cy="200" r="52" fill="#212121"/>
+  <circle cx="278" cy="200" r="28" fill="#fbc02d"/>
+  <circle cx="278" cy="200" r="8" fill="#212121"/>
+  <circle cx="150" cy="215" r="6" fill="#212121"/>
+  <!-- fender -->
+  <path d="M226 160 a54 54 0 0 1 104 0 l-14 0 a40 40 0 0 0 -76 0 z" fill="#1b5e20"/>
+</svg>

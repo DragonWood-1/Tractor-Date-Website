@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farm Tractors — Tractor Date</title>
+  <meta name="description" content="Every farm tractor brand with photos, production years, horsepower ranges, and links to manufacturer websites.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="images/farm-tractor.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="site">
+    <div class="logo">🚜 Tractor<span>Date</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="farm-tractors.html" class="active">Farm Tractors</a>
+      <a href="lawn-tractors.html">Lawn &amp; Garden</a>
+      <a href="equipment.html">Farm Equipment</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>All Farm Tractor Brands</h2>
+      <p>From 1901 steam-era pioneers to today's 700+ horsepower giants. Each card shows the
+         brand's tractor count, production years, and horsepower range, and links to the
+         manufacturer's website (or to the historical archive for heritage brands).</p>
+    </section>
+
+    <div class="toolbar">
+      <input type="search" id="farm-search" placeholder="Search farm tractor brands… (e.g. John Deere, Kubota, Fendt)">
+      <span class="count" id="farm-count"></span>
+    </div>
+
+    <div class="grid" id="farm-grid"></div>
+  </main>
+
+  <footer class="site">
+    <p>Tractor Date — specifications for farm, lawn, and industrial tractors.</p>
+    <p>Historical specification reference: <a href="https://www.tractordata.com" target="_blank" rel="noopener noreferrer">TractorData.com</a></p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>renderBrands("farm-grid", FARM_BRANDS, "farm-search", "farm-count");</script>
+</body>
+</html>

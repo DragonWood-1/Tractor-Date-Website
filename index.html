@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tractor Date — Farm, Lawn &amp; Industrial Tractor Resource</title>
+  <meta name="description" content="Tractor Date: specifications, production years, and horsepower for farm tractors, lawn and garden tractors, and farm equipment, with links to every manufacturer.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="images/farm-tractor.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="site">
+    <div class="logo">🚜 Tractor<span>Date</span></div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="farm-tractors.html">Farm Tractors</a>
+      <a href="lawn-tractors.html">Lawn &amp; Garden</a>
+      <a href="equipment.html">Farm Equipment</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>The Internet's Tractor Resource</h1>
+    <p>Data on <strong>18,258</strong> farm, lawn, and industrial tractors — providing tractor
+       specifications to farmers, homeowners, and the machinery industry, with direct links
+       to every manufacturer's website.</p>
+    <div class="stats">
+      <div><strong>18,258</strong>Tractors</div>
+      <div><strong id="stat-farm">0</strong>Farm Brands</div>
+      <div><strong id="stat-lawn">0</strong>Lawn Brands</div>
+      <div><strong>1901&ndash;2026</strong>Years Covered</div>
+    </div>
+  </div>
+
+  <main>
+    <section class="intro">
+      <h2>Browse by Category</h2>
+      <p>Pick a category to see every brand with photos, production years, horsepower
+         ranges, and a link to the manufacturer's official website.</p>
+    </section>
+
+    <div class="tiles">
+      <a class="tile" href="farm-tractors.html">
+        <img src="images/farm-tractor.svg" alt="Farm tractor in a field">
+        <div class="label">Farm Tractors</div>
+      </a>
+      <a class="tile" href="lawn-tractors.html">
+        <img src="images/lawn-tractor.svg" alt="Lawn and garden tractor mowing grass">
+        <div class="label">Lawn &amp; Garden Tractors</div>
+      </a>
+      <a class="tile" href="equipment.html">
+        <img src="images/combine.svg" alt="Combine harvester in a wheat field">
+        <div class="label">Farm Equipment</div>
+      </a>
+    </div>
+  </main>
+
+  <footer class="site">
+    <p>Tractor Date — specifications for farm, lawn, and industrial tractors.</p>
+    <p>Historical specification reference: <a href="https://www.tractordata.com" target="_blank" rel="noopener noreferrer">TractorData.com</a></p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script>
+    document.getElementById("stat-farm").textContent = FARM_BRANDS.length;
+    document.getElementById("stat-lawn").textContent = LAWN_BRANDS.length;
+  </script>
+</body>
+</html>

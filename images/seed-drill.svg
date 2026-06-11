@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#f1f8e9"/>
+  <rect y="215" width="400" height="85" fill="#795548"/>
+  <g stroke="#5d4037" stroke-width="4">
+    <line x1="40" y1="215" x2="40" y2="300"/><line x1="120" y1="215" x2="120" y2="300"/>
+    <line x1="200" y1="215" x2="200" y2="300"/><line x1="280" y1="215" x2="280" y2="300"/>
+    <line x1="360" y1="215" x2="360" y2="300"/>
+  </g>
+  <circle cx="330" cy="55" r="24" fill="#ffe082"/>
+  <!-- seed drill -->
+  <rect x="100" y="100" width="200" height="56" rx="8" fill="#f57f17"/>
+  <path d="M100 100 l200 0 -20 -28 -160 0 z" fill="#ff9800"/>
+  <g stroke="#37474f" stroke-width="5">
+    <line x1="120" y1="156" x2="120" y2="200"/><line x1="160" y1="156" x2="160" y2="200"/>
+    <line x1="200" y1="156" x2="200" y2="200"/><line x1="240" y1="156" x2="240" y2="200"/>
+    <line x1="280" y1="156" x2="280" y2="200"/>
+  </g>
+  <line x1="100" y1="130" x2="50" y2="130" stroke="#37474f" stroke-width="8"/>
+  <circle cx="135" cy="200" r="22" fill="#212121"/>
+  <circle cx="135" cy="200" r="10" fill="#cfd8dc"/>
+  <circle cx="265" cy="200" r="22" fill="#212121"/>
+  <circle cx="265" cy="200" r="10" fill="#cfd8dc"/>
+</svg>
