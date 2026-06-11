@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/wm/:name",
-      "destination": "https://commons.wikimedia.org/wiki/Special:FilePath/:name"
+      "destination": "https://commons.wikimedia.org/wiki/Special%3AFilePath/:name"
     }
   ]
 }
