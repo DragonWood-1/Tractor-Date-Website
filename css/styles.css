@@ -135,6 +135,18 @@ section.intro p { max-width: 760px; margin: 0 auto; }
 
 .btn:hover { background: var(--green-dark); }
 
+.badge {
+  margin-top: auto;
+  display: inline-block;
+  background: #eceff1;
+  color: #607d8b;
+  text-align: center;
+  padding: 0.55rem 0.9rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
 .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
 
 .tile {

@@ -1,9 +1,6 @@
 // Tractor Date brand database
 // Each entry: [name, tractorCount, years, horsepower, manufacturerUrl]
-// manufacturerUrl is null for heritage/defunct brands — those link to
-// TractorData.com, the reference archive for historical specifications.
-
-const REFERENCE_SITE = "https://www.tractordata.com";
+// manufacturerUrl is null for heritage/defunct brands with no active website.
 
 // All photos are freely licensed images hosted on Wikimedia Commons.
 // wmPhoto() builds a direct image URL; wmCredit() links to the file page

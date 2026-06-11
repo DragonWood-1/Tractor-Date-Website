@@ -12,10 +12,9 @@ function photoFigure(file, alt) {
 
 function brandCard(brand, isLawn) {
   const [name, count, years, hp, url] = brand;
-  const site = url || REFERENCE_SITE;
-  const linkLabel = url
-    ? `Visit ${name} website`
-    : "Heritage brand — specs at TractorData.com";
+  const link = url
+    ? `<a class="btn" href="${url}" target="_blank" rel="noopener noreferrer">Visit ${name} website &rarr;</a>`
+    : `<span class="badge">Heritage brand — no longer in production</span>`;
   const file = brandPhotoFile(name, isLawn);
   return `
   <article class="card">
@@ -27,7 +26,7 @@ function brandCard(brand, isLawn) {
         ${years ? `<li>Built ${years}</li>` : ""}
         ${hp ? `<li>${hp}</li>` : ""}
       </ul>
-      <a class="btn" href="${site}" target="_blank" rel="noopener noreferrer">${linkLabel} &rarr;</a>
+      ${link}
     </div>
   </article>`;
 }
