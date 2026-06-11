@@ -3,6 +3,10 @@
     {
       "source": "/wm/:name",
       "destination": "https://commons.wikimedia.org/wiki/Special%3AFilePath/:name"
+    },
+    {
+      "source": "/wmapi/:titles",
+      "destination": "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&titles=:titles"
     }
   ]
 }
