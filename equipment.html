@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farm Equipment — Tractor Date</title>
+  <meta name="description" content="Farm equipment gallery: tractors, mowers, combines, balers, plows, sprayers, planters, and tillers.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚜</text></svg>">
+</head>
+<body>
+  <header class="site">
+    <div class="logo">🚜 Tractor<span>Date</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="farm-tractors.html">Farm Tractors</a>
+      <a href="lawn-tractors.html">Lawn &amp; Garden</a>
+      <a href="equipment.html" class="active">Farm Equipment</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Farm Equipment Gallery</h2>
+      <p>The machines that keep farms and lawns running — tractors, mowers, harvesters,
+         and the implements they pull.</p>
+    </section>
+
+    <div class="grid" id="equipment-grid"></div>
+  </main>
+
+  <footer class="site">
+    <p>Tractor Date — specifications for farm, lawn, and industrial tractors.</p>
+    <p>Photos via Wikimedia Commons, used under their respective free licenses.</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>renderEquipment("equipment-grid");</script>
+</body>
+</html>
