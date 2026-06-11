@@ -38,5 +38,4 @@ equipment.html         Equipment gallery
 css/styles.css         Site styles
 js/data.js             Brand database and photo mappings
 js/app.js              Card rendering and search
-vercel.json            Image proxy rewrite for Wikimedia Commons photos
 ```
