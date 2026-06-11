@@ -13,8 +13,7 @@ A static website cataloging farm, lawn & garden, and industrial tractors, with d
 Each brand card shows a real photo (brand-specific for major brands, a neutral field or
 lawn photo otherwise), the brand's tractor count, production years, and horsepower range,
 plus a link to the manufacturer's official website where the brand is still in
-business. All photos are freely licensed images served from Wikimedia Commons;
-each photo links to its Commons file page for author and license attribution.
+business. All photos are freely licensed images served from Wikimedia Commons.
 
 ## Running locally
 

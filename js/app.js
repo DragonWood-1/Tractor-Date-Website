@@ -1,13 +1,11 @@
 // Renders brand directories and the equipment gallery.
-// All photos are freely licensed images served from Wikimedia Commons;
-// each image links back to its Commons file page for attribution.
+// All photos are freely licensed images served from Wikimedia Commons.
 
 function photoFigure(file, alt) {
   return `
-  <a class="card-img" href="${wmCredit(file)}" target="_blank" rel="noopener noreferrer"
-     title="Photo via Wikimedia Commons — click for author and license">
+  <div class="card-img">
     <img src="${wmPhoto(file)}" alt="${alt}" loading="lazy">
-  </a>`;
+  </div>`;
 }
 
 function brandCard(brand, isLawn) {

@@ -3,15 +3,9 @@
 // manufacturerUrl is null for heritage/defunct brands with no active website.
 
 // All photos are freely licensed images hosted on Wikimedia Commons.
-// wmPhoto() builds a direct image URL; wmCredit() links to the file page
-// (which carries the author and license details required for attribution).
 function wmPhoto(file, width) {
   return "https://commons.wikimedia.org/wiki/Special:FilePath/" +
     encodeURIComponent(file) + "?width=" + (width || 800);
-}
-
-function wmCredit(file) {
-  return "https://commons.wikimedia.org/wiki/File:" + encodeURIComponent(file);
 }
 
 // Brand-specific photos (Wikimedia Commons filenames) for well-known brands.
